@@ -16,7 +16,6 @@ export function Dropdown({ children, position, controlContent }) {
     const escFunction = useCallback(event => {
       if (event.key === 'Escape') {
         setShowPopup(false);
-        setFocus(0);
       }
     }, []);
   
@@ -53,7 +52,7 @@ export function Dropdown({ children, position, controlContent }) {
         <DropdownButton
           id="dropdown-button"
           type="button"
-          onClick={() => { setShowPopup(!showPopup);}}
+          onClick={() => { setShowPopup(!showPopup); setFocus(-1);}}
           aria-expanded={showPopup}
           aria-haspopup
           aria-label="Open options button"
